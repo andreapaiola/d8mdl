@@ -1,0 +1,25 @@
+mdl:
+  css:
+    theme:
+      //storage.googleapis.com/code.getmdl.io/VERSION/material.PRIMARY-ACCENT.min.css: { type: external }
+  js:
+      //storage.googleapis.com/code.getmdl.io/VERSION/material.min.js: { type: external }
+  dependencies:
+    - mdl/materialIcons
+    - mdl/roboto
+materialIcons:
+  css:
+    theme:
+      //fonts.googleapis.com/icon?family=Material+Icons: { type: external }
+roboto:
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Roboto:300,400,500,700: { type: external }
+mdltheme:
+  css:
+    theme:
+      style.css: {}
+  js:
+    script.js: {}
+  dependencies:
+    - mdl/mdl

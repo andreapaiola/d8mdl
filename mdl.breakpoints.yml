@@ -1,0 +1,42 @@
+mdl.xsmall:
+  label: xsmall
+  mediaQuery: 'screen and (max-width: 479px)'
+  weight: 0
+  multipliers:
+    - 1x
+mdl.small:
+  label: small
+  mediaQuery: 'screen and (min-width: 480px)'
+  weight: 1
+  multipliers:
+    - 1x
+mdl.medium:
+  label: medium
+  mediaQuery: 'screen and (min-width: 840px)'
+  weight: 2
+  multipliers:
+    - 1x
+mdl.large:
+  label: large
+  mediaQuery: 'screen and (min-width: 1024px)'
+  weight: 3
+  multipliers:
+    - 1x
+mdl.xlarge:
+  label: xlarge
+  mediaQuery: 'screen and (min-width: 1920px)'
+  weight: 4
+  multipliers:
+    - 1x
+mdl.xxlarge:
+  label: xxlarge
+  mediaQuery: 'screen and (min-width: 3840px)'
+  weight: 5
+  multipliers:
+    - 1x
+mdl.print:
+  label: print
+  mediaQuery: 'print'
+  weight: 6
+  multipliers:
+   - 1x

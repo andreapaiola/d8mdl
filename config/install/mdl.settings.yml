@@ -1,0 +1,12 @@
+version: '1.0.6'
+primary: 'indigo'
+accent: 'pink'
+roboto: TRUE
+remote: TRUE
+headerFixed: TRUE
+headerWaterfall: FALSE
+headerScroll: TRUE
+headerTransparent: FALSE
+headerSeamed: FALSE
+drawerFixed: FALSE
+footer: 'mega'

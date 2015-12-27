@@ -1,0 +1,15 @@
+name: Material Design Lite
+type: theme
+description: 'Material theme (Google Material Design). As smooth and fast as possible.'
+package: Custom
+core: 8.x
+libraries:
+  - mdl/mdltheme
+stylesheets-remove:
+  - core/assets/vendor/normalize-css/normalize.css
+  - core/modules/system/css/system.theme.css
+regions:
+  header: 'Header'
+  drawer: 'Drawer'
+  content: 'Content'
+  footer: 'Footer'

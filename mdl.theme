@@ -1,0 +1,162 @@
+<?php
+
+function mdl_library_info_alter(&$libraries, $extension)
+{
+    if ($extension === 'mdl' && isset($libraries['mdl'])) {
+
+        $oldCSSKey = array_shift(array_keys($libraries['mdl']['css']['theme']));
+        $oldJSKey = array_shift(array_keys($libraries['mdl']['js']));
+
+        /* Load MDL CSS and JS from Google CDN or local subdirectory */
+        if (theme_get_setting('remote')) {
+            $newCSSKey = str_replace(array('VERSION', 'PRIMARY', 'ACCENT'), array(theme_get_setting('version')
+            , theme_get_setting('primary'), theme_get_setting('accent')), $oldCSSKey);
+            $libraries['mdl']['css']['theme'][$newCSSKey] = $libraries['mdl']['css']['theme'][$oldCSSKey];
+            $newJSKey = str_replace('VERSION', theme_get_setting('version'), $oldJSKey);
+            $libraries['mdl']['js'][$newJSKey] = $libraries['mdl']['js'][$oldJSKey];
+        }
+        else
+        {
+            $newCSSKey = 'mdl/material.css';
+            $libraries['mdl']['css']['theme'][$newCSSKey] = array();
+            $newJSKey = 'mdl/material.js';
+            $libraries['mdl']['js'][$newJSKey] = array();
+        }
+
+        unset($libraries['mdl']['css']['theme'][$oldCSSKey]);
+        unset($libraries['mdl']['js'][$oldJSKey]);
+
+        if (!theme_get_setting('roboto')) {
+            $libraries['mdl']['dependencies'] = array_diff($libraries['mdl']['dependencies'], array('mdl/roboto'));
+        }
+    }
+}
+
+function mdl_preprocess_page(&$variables){
+    // header
+    $variables['headerFixed']=theme_get_setting('headerFixed');
+    $variables['headerWaterfall']=theme_get_setting('headerWaterfall');
+    $variables['headerScroll']=theme_get_setting('headerScroll');
+    $variables['headerTransparent']=theme_get_setting('headerTransparent');
+    $variables['headerSeamed']=theme_get_setting('headerSeamed');
+
+    // drawer
+    $variables['drawerFixed']=theme_get_setting('drawerFixed');
+
+    // footer
+    $variables['footer']=theme_get_setting('footer');
+}
+
+function mdl_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state)
+{
+
+    $form['mdl'] = array(
+        '#type' => 'details',
+        '#title' => t('Material Design Lite settings'),
+        '#open' => TRUE,
+    );
+
+    // Add a textfield to define the MDL version.
+    $form['mdl']['version'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Version'),
+        '#default_value' => theme_get_setting('version'),
+        '#description' => t('You can change the MDL version, default is "1.0.6".'),
+    );
+
+    // Add a textfield to define the MDL primary color.
+    $form['mdl']['primary'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Primary color'),
+        '#default_value' => theme_get_setting('primary'),
+        '#description' => t('You change the MDL primary color, default is "indigo".'),
+    );
+
+    // Add a textfield to define the MDL accent color.
+    $form['mdl']['accent'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Accent color'),
+        '#default_value' => theme_get_setting('accent'),
+        '#description' => t('You change the MDL accent color, default is "pink".'),
+    );
+
+    // Add a checkbox to toggle the Roboto font include.
+    $form['mdl']['roboto'] = array(
+        '#type' => 'checkbox',
+        '#title' => t('Load Roboto font'),
+        '#default_value' => theme_get_setting('roboto'),
+        '#description' => t('You can load the Roboto font from Google CDN. If Roboto is a system font (e.g. Android)
+        will be displayed even if it\'s not checked.'),
+    );
+
+    // Add a checkbox to toggle remote/local loading.
+    $form['mdl']['remote'] = array(
+        '#type' => 'checkbox',
+        '#title' => t('Load remote CSS and JS'),
+        '#default_value' => theme_get_setting('remote'),
+        '#description' => t('You can load the MDL CSS/JS from Google CDN.
+        If it isn\'t checked the theme tries to load from mdl subdirectory like mdl/material.css
+        and mdl/material.js in the theme folder.'),
+    );
+    // Add a checkbox to toggle fixed header.
+    $form['mdl']['headerFixed'] = array(
+        '#type' => 'checkbox',
+        '#title' => t('Fixed Header'),
+        '#default_value' => theme_get_setting('headerFixed'),
+        '#description' => t('mdl-layout--fixed-header Makes the header always visible, even in small screens'),
+    );
+    // Add a checkbox to toggle waterfall header.
+    $form['mdl']['headerWaterfall'] = array(
+        '#type' => 'checkbox',
+        '#title' => t('Waterfall Header'),
+        '#default_value' => theme_get_setting('headerWaterfall'),
+        '#description' => t('mdl-layout__header--waterfall Allows a "waterfall" effect with multiple header lines'),
+    );
+    // Add a checkbox to toggle scroll header.
+    $form['mdl']['headerScroll'] = array(
+        '#type' => 'checkbox',
+        '#title' => t('Scroll Header'),
+        '#default_value' => theme_get_setting('headerScroll'),
+        '#description' => t('mdl-layout__header--scroll Makes the header scroll with the content'),
+    );
+    // Add a checkbox to toggle transparent header.
+    $form['mdl']['headerTransparent'] = array(
+        '#type' => 'checkbox',
+        '#title' => t('Transparent Header'),
+        '#default_value' => theme_get_setting('headerTransparent'),
+        '#description' => t('mdl-layout__header--transparent Makes header transparent (draws on top of layout background)'),
+    );
+    // Add a checkbox to toggle seamed header.
+    $form['mdl']['headerSeamed'] = array(
+        '#type' => 'checkbox',
+        '#title' => t('Seamed Header'),
+        '#default_value' => theme_get_setting('headerSeamed'),
+        '#description' => t('mdl-layout__header--seamed Uses a header without a shadow'),
+    );
+    // Add a checkbox to toggle fixed drawer.
+    $form['mdl']['drawerFixed'] = array(
+        '#type' => 'checkbox',
+        '#title' => t('Fixed Drawer'),
+        '#default_value' => theme_get_setting('drawerFixed'),
+        '#description' => t('mdl-layout--fixed-drawer Makes the drawer always visible and open in larger screens'),
+    );
+    // Add radios for the footer
+    $form['mdl']['footer'] = array(
+        '#type' => 'radios',
+        '#title' => t('Footer'),
+        '#default_value' => theme_get_setting('footer'),
+        '#options' => array('mega' => t('Mega-footer'), 'mini' => t('Mini-footer')),
+        '#description' => t('The footer can be mega or mini.'),
+    );
+}
+
+function mdl_preprocess_menu(&$variables, $hook) {
+    if(isset($hook) && $hook=='menu__main')
+    {
+        foreach($variables['items'] as $id=>$item)
+        {
+            $item['attributes']->addClass('mdl-navigation__link');
+        }
+    }
+}
+
