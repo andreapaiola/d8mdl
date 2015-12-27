@@ -27,18 +27,18 @@ Standard place for site Main navigation block, in Material Design becomes a navi
 
 page.secondary_menu (Secondary menu)
 Tipically the place for User account menu and users tasks, it becomes a layout block of menu type,
-a hamburger menu in the header.
+a hamburger menu in the header? I prefer in the drawer.
 https://www.google.com/design/spec/components/menus.html
 http://www.getmdl.io/components/index.html#menus-section
 
 page.breadcrumb (Breadcrumb)
-Breadcrumb navigation
+Breadcrumb navigation in content area
 
 page.highlighted (Highlighted)
-Status messages: alerts and errors messages
+Status messages: alerts and errors messages in content area
 
 page.help (Help)
-Help messages
+Help messages in content area
 
 page.content (Content)
 Main page contents: contains entities fields output and main user interactions/contents
