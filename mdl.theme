@@ -85,7 +85,7 @@ function mdl_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormStat
         '#type' => 'checkbox',
         '#title' => t('Load Roboto font'),
         '#default_value' => theme_get_setting('roboto'),
-        '#description' => t('You can load the Roboto font from Google CDN. If Roboto is a system font (e.g. Android)
+        '#description' => t('You can load the Roboto font from Google CDN. This is bad for performance, avoid if possible. If Roboto is a system font (e.g. Android)
         will be displayed even if it\'s not checked.'),
     );
 
@@ -143,7 +143,7 @@ function mdl_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormStat
     // Add radios for the footer
     $form['mdl']['footer'] = array(
         '#type' => 'radios',
-        '#title' => t('Footer'),
+        '#title' => t('Footer mini or mega'),
         '#default_value' => theme_get_setting('footer'),
         '#options' => array('mega' => t('Mega-footer'), 'mini' => t('Mini-footer')),
         '#description' => t('The footer can be mega or mini.'),
