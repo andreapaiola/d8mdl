@@ -10,6 +10,36 @@ Use it when you are ready to move away from jQuery.
 http://andreapaiola.name/2015-07-materialize-css-vs-material-design-lite/
 
 
+FEATURES
+--------
+
+Easy theme administration:
+- You can change the MDL version, default is "1.0.6". Easy upgrade.
+- You change the MDL primary color, default is "indigo".
+- You change the MDL accent color, default is "pink".
+- You can load the Roboto font from Google CDN. This is bad for performance, avoid if possible.
+- You can load the MDL CSS/JS from Google CDN or from a local directory.
+- MDL Layout Components http://www.getmdl.io/components/index.html
+-- Fixed Header
+-- Waterfall Header
+-- Scroll Header
+-- Transparent Header
+-- Seamed Header
+-- Fixed Drawer
+-- Footer mini or mega
+
+
+NEW FEATURES (TODOs, in development)
+------------------------------------
+
+Progressive webapp with Offline-first (e.g. IndexedDB and ServiceWorkers) and Web workers (HTTPS only)
+http://addyosmani.com/blog/getting-started-with-progressive-web-apps/
+https://infrequently.org/2015/06/progressive-apps-escaping-tabs-without-losing-our-soul/
+http://www.pocketjavascript.com/blog/2015/11/23/introducing-pokedex-org
+
+Performance optimization with Modern Progressive Enhancement
+https://www.youtube.com/watch?v=r038QioMtxI
+
 
 LAYOUT STRUCTURE: Standard Drupal 8 Regions and MDL Layout components
 ---------------------------------------------------------------------
@@ -62,33 +92,3 @@ Current MDL version: 1.0.6, but if you want you can update MDL version in theme 
 Default colors are indigo-pink, but MDL colors is customizable here http://www.getmdl.io/customize/index.html
 and you can set in theme configuration.
 
-
-FEATURES
---------
-
-Easy theme administration:
-- You can change the MDL version, default is "1.0.6". Easy upgrade.
-- You change the MDL primary color, default is "indigo".
-- You change the MDL accent color, default is "pink".
-- You can load the Roboto font from Google CDN. This is bad for performance, avoid if possible.
-- You can load the MDL CSS/JS from Google CDN or from a local directory.
-- MDL Layout Components http://www.getmdl.io/components/index.html
--- Fixed Header
--- Waterfall Header
--- Scroll Header
--- Transparent Header
--- Seamed Header
--- Fixed Drawer
--- Footer mini or mega
-
-
-NEW FEATURES (TODOs, in development)
-------------------------------------
-
-Progressive webapp with Offline-first (e.g. IndexedDB and ServiceWorkers) and Web workers (HTTPS only)
-http://addyosmani.com/blog/getting-started-with-progressive-web-apps/
-https://infrequently.org/2015/06/progressive-apps-escaping-tabs-without-losing-our-soul/
-http://www.pocketjavascript.com/blog/2015/11/23/introducing-pokedex-org
-
-Performance optimization with Modern Progressive Enhancement
-https://www.youtube.com/watch?v=r038QioMtxI
