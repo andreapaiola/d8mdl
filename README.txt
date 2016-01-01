@@ -28,6 +28,9 @@ Easy theme administration:
 -- Fixed Drawer
 -- Footer mini or mega
 
+Web App Manifest
+http://w3c.github.io/manifest/
+The file manifest.json is in the theme directory, compile with your website app data
 
 NEW FEATURES (TODOs, in development)
 ------------------------------------

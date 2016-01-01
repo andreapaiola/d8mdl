@@ -3,10 +3,11 @@ primary: 'indigo'
 accent: 'pink'
 roboto: TRUE
 remote: TRUE
-headerFixed: TRUE
+headerFixed: FALSE
 headerWaterfall: FALSE
 headerScroll: TRUE
 headerTransparent: FALSE
 headerSeamed: FALSE
 drawerFixed: FALSE
 footer: 'mega'
+webAppManifest: TRUE

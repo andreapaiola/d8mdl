@@ -45,6 +45,21 @@ function mdl_preprocess_page(&$variables){
 
     // footer
     $variables['footer']=theme_get_setting('footer');
+
+}
+
+function mdl_page_attachments_alter(array &$attachments) {
+    if(theme_get_setting('webAppManifest'))
+    {
+        $manifest = [
+            '#tag' => 'link',
+            '#attributes' => [
+                'rel' => 'manifest',
+                'href' => base_path().drupal_get_path('theme','mdl').'/manifest.json',
+            ],
+        ];
+        $attachments['#attached']['html_head'][] = [$manifest, 'manifest'];
+    }
 }
 
 function mdl_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state)
@@ -147,6 +162,13 @@ function mdl_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormStat
         '#default_value' => theme_get_setting('footer'),
         '#options' => array('mega' => t('Mega-footer'), 'mini' => t('Mini-footer')),
         '#description' => t('The footer can be mega or mini.'),
+    );
+    // Add the Manifest for Web applications
+    $form['mdl']['webAppManifest'] = array(
+        '#type' => 'checkbox',
+        '#title' => t('Web App Manifest'),
+        '#default_value' => theme_get_setting('webAppManifest'),
+        '#description' => t('The Manifest for Web applications is a simple JSON file that gives you, the developer, the ability to control how your app appears to the user in the areas that they would expect to see apps (for example the device home screen), direct what the user can launch and more importantly how they can launch it'),
     );
 }
 
