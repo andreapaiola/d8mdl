@@ -83,7 +83,7 @@ Easy theme administration:
 
 
 NEW FEATURES (TODOs, in development)
------------------------------
+------------------------------------
 
 Progressive webapp with Offline-first (e.g. IndexedDB and ServiceWorkers) and Web workers (HTTPS only)
 http://addyosmani.com/blog/getting-started-with-progressive-web-apps/
