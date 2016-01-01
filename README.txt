@@ -40,6 +40,7 @@ http://www.pocketjavascript.com/blog/2015/11/23/introducing-pokedex-org
 Performance optimization with Modern Progressive Enhancement
 https://www.youtube.com/watch?v=r038QioMtxI
 
+HTTP/2 optimizations
 
 LAYOUT STRUCTURE: Standard Drupal 8 Regions and MDL Layout components
 ---------------------------------------------------------------------
