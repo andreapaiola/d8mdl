@@ -89,3 +89,6 @@ Progressive webapp with Offline-first (e.g. IndexedDB and ServiceWorkers) and We
 http://addyosmani.com/blog/getting-started-with-progressive-web-apps/
 https://infrequently.org/2015/06/progressive-apps-escaping-tabs-without-losing-our-soul/
 http://www.pocketjavascript.com/blog/2015/11/23/introducing-pokedex-org
+
+Performance optimization with Modern Progressive Enhancement
+https://www.youtube.com/watch?v=r038QioMtxI
