@@ -1,7 +1,7 @@
 DESCRIPTION
 -----------
 
-A Google Material Design theme
+A Drupal 8 Google Material Design theme
 https://www.google.com/design/spec/material-design
 This theme is not for front-end beginners.
 Targeting extreme performance in modern browsers and new web technologies and
