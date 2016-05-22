@@ -76,7 +76,7 @@ function mdl_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormStat
         '#type' => 'textfield',
         '#title' => t('Version'),
         '#default_value' => theme_get_setting('version'),
-        '#description' => t('You can change the MDL version, default is "1.0.6".'),
+        '#description' => t('You can change the MDL version, default is "1.1.3".'),
     );
 
     // Add a textfield to define the MDL primary color.
