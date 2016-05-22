@@ -4,8 +4,10 @@ function mdl_library_info_alter(&$libraries, $extension)
 {
     if ($extension === 'mdl' && isset($libraries['mdl'])) {
 
-        $oldCSSKey = array_shift(array_keys($libraries['mdl']['css']['theme']));
-        $oldJSKey = array_shift(array_keys($libraries['mdl']['js']));
+        $mdlCSSKeys = array_keys($libraries['mdl']['css']['theme']);
+        $oldCSSKey = array_shift($mdlCSSKeys);
+        $mdlJSKeys = array_keys($libraries['mdl']['js']);
+        $oldJSKey = array_shift($mdlJSKeys);
 
         /* Load MDL CSS and JS from Google CDN or local subdirectory */
         if (theme_get_setting('remote')) {
