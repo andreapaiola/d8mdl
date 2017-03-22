@@ -7,6 +7,14 @@ mdl:
   dependencies:
     - mdl/materialIcons
     - mdl/roboto
+
+mdl.selectfield:
+  css:
+    component:
+      /libraries/mdl-selectfield/mdl-selectfield.min.css: {}
+  js:
+    /libraries/mdl-selectfield/mdl-selectfield.min.js: {}
+
 materialIcons:
   css:
     theme:
