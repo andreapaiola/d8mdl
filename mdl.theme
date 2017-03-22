@@ -1,5 +1,7 @@
 <?php
 
+use Drupal\Core\Template\Attribute;
+
 function mdl_library_info_alter(&$libraries, $extension)
 {
     if ($extension === 'mdl' && isset($libraries['mdl'])) {
@@ -184,3 +186,69 @@ function mdl_preprocess_menu(&$variables, $hook) {
     }
 }
 
+/**
+ * Transform form elements to MDL input fields
+ **/
+function mdl_preprocess_textarea(&$variables) {
+  $variables['attributes']['class'][] = 'mdl-textfield__input';
+}
+
+function mdl_preprocess_input(&$variables) {
+  if ($variables['element']['#type'] == 'textfield') {
+    $variables['attributes']['class'][] = 'mdl-textfield__input';
+    if (empty($variables['attributes']['placeholder'])) {
+      unset($variables['attributes']['placeholder']);
+    }
+  }
+  else if ($variables['element']['#type'] == 'submit') {
+    $variables['attributes']['class'][] = 'mdl-button';
+    $variables['attributes']['class'][] = 'mdl-js-button';
+    $variables['attributes']['class'][] = 'mdl-button--raised';
+    $variables['attributes']['class'][] = 'mdl-js-ripple-effect';
+    if ($variables['element']['#button_type'] == 'primary') {
+      $variables['attributes']['class'][] = 'mdl-button--accent';
+    }
+
+    //$variables['value'] = $variables['attributes']['value'];
+    //unset($variables['attributes']['value']);
+  }
+}
+
+function mdl_preprocess_select(&$variables) {
+  $variables['attributes']['class'][] = 'mdl-selectfield__select';
+  $variables['#attached']['library'][] = 'mdl/mdl.selectfield';
+}
+
+function mdl_preprocess_form_element(&$variables) {
+  if ($variables['type'] == 'textfield') {
+    $variables['label_display'] = 'after';
+    $variables['label']['#attributes']['class'][] = 'mdl-textfield__label';
+    $variables['attributes'] = new Attribute();
+    $variables['attributes']->addClass('mdl-textfield');
+    $variables['attributes']->addClass('mdl-js-textfield');
+    $variables['attributes']->addClass('mdl-textfield--floating-label');
+  } else if ($variables['type'] == 'textarea') {
+    $variables['label_display'] = 'after';
+    $variables['label']['#attributes']['class'][] = 'mdl-textfield__label';
+    $variables['attributes'] = new Attribute();
+    $variables['attributes']->addClass('mdl-textfield');
+    $variables['attributes']->addClass('mdl-js-textfield');
+    $variables['attributes']->addClass('mdl-textfield--floating-label');
+  } else if ($variables['type'] == 'select') {
+    $variables['label_display'] = 'after';
+    $variables['label']['#attributes']['class'][] = 'mdl-selectfield__label';
+    $variables['label']['#icon'] = 'arrow_drop_down';
+    $variables['label']['#icon_attributes']['class'][] = 'mdl-selectfield__icon';
+    $variables['attributes'] = new Attribute();
+    $variables['attributes']->addClass('mdl-selectfield');
+    $variables['attributes']->addClass('mdl-js-selectfield');
+    $variables['attributes']->addClass('mdl-selectfield--floating-label');
+  }
+}
+
+function mdl_preprocess_form_element_label(&$variables) {
+  if ($variables['element']['#icon']) {
+    $variables['icon'] = $variables['element']['#icon'];
+    $variables['icon_attributes'] = new Attribute($variables['element']['#icon_attributes']);
+  }
+}
