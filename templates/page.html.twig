@@ -62,7 +62,9 @@
     {% if headerSeamed %} mdl-layout__header--seamed{% endif %}
     ">
         {{ page.header }}
-
+        {% if headerWaterfall and page.waterfall %}
+            {{ page.waterfall }}
+        {% endif %}
     </header>
     {% if page.drawer %}
     <div class="mdl-layout__drawer">
@@ -79,16 +81,17 @@
             </div>
         </div>
         {% if page.footer %}
-            <footer role="contentinfo" class="
-            {% if footer == 'mega' %}
-            mdl-mega-footer
-            {% endif %}
-            {% if footer == 'mini' %}
-            mdl-mini-footer
-            {% endif %}
-            mdl-color--grey-900">
-                {{ page.footer }}
-            </footer>
+        <footer role="contentinfo" class="
+        {% if footer == 'mega' %}
+        mdl-mega-footer
         {% endif %}
+        {% if footer == 'mini' %}
+        mdl-mini-footer
+        {% endif %}
+        mdl-color--grey-900">
+
+        {{ page.footer }}
+        </footer>
+    {% endif %}
     </main>
 </div>
