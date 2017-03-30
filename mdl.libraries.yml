@@ -23,3 +23,8 @@ mdltheme:
     script.js: {}
   dependencies:
     - mdl/mdl
+
+waterfall-panels:
+  css:
+    theme:
+      css/waterfall-panels.css: {}

@@ -65,6 +65,9 @@ a hamburger menu in the header? I prefer in the drawer.
 https://www.google.com/design/spec/components/menus.html
 http://www.getmdl.io/components/index.html#menus-section
 
+page.waterfall (Waterfall)
+Navigation elements that disappear when scrolling down.
+
 page.breadcrumb (Breadcrumb)
 Breadcrumb navigation in content area
 
