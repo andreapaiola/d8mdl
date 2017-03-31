@@ -194,7 +194,7 @@ function mdl_preprocess_textarea(&$variables) {
 }
 
 function mdl_preprocess_input(&$variables) {
-  if ($variables['element']['#type'] == 'textfield') {
+  if (in_array($variables['element']['#type'],[ 'textfield', 'search', 'password'])) {
     $variables['attributes']['class'][] = 'mdl-textfield__input';
     if (empty($variables['attributes']['placeholder'])) {
       unset($variables['attributes']['placeholder']);
@@ -220,14 +220,19 @@ function mdl_preprocess_select(&$variables) {
 }
 
 function mdl_preprocess_form_element(&$variables) {
-  if ($variables['type'] == 'textfield') {
+  if (in_array($variables['type'], ['textfield', 'search', 'password'])) {
     $variables['label_display'] = 'after';
     $variables['label']['#attributes']['class'][] = 'mdl-textfield__label';
     $variables['attributes'] = new Attribute();
-    $variables['attributes']->addClass('mdl-textfield');
-    $variables['attributes']->addClass('mdl-js-textfield');
-    $variables['attributes']->addClass('mdl-textfield--floating-label');
-  } else if ($variables['type'] == 'textarea') {
+
+    // special handling for input#keys[type=search] in SearchBlockForm
+    if ($variables['title_display'] != 'invisible') {
+      $variables['attributes']->addClass('mdl-textfield');
+      $variables['attributes']->addClass('mdl-js-textfield');
+      $variables['attributes']->addClass('mdl-textfield--floating-label');
+    }
+  }
+  if ($variables['type'] == 'textarea') {
     $variables['label_display'] = 'after';
     $variables['label']['#attributes']['class'][] = 'mdl-textfield__label';
     $variables['attributes'] = new Attribute();
