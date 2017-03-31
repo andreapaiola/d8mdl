@@ -15,6 +15,11 @@ mdl.selectfield:
   js:
     /libraries/mdl-selectfield/mdl-selectfield.min.js: {}
 
+mdl.searchblock:
+  css:
+    component:
+      css/header.block--search.css: {}
+
 materialIcons:
   css:
     theme:
