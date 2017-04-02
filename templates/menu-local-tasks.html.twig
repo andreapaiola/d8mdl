@@ -1,0 +1,16 @@
+{# core/themes/stable/templates/navigation/menu-local-tasks.html.twig #}
+
+{% if primary %}
+    <h2 class="visually-hidden">{{ 'Primary tabs'|t }}</h2>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+        for="local-tasks">
+        {{ primary }}
+    </ul>
+{% endif %}
+{% if secondary %}
+    <h2 class="visually-hidden">{{ 'Secondary tabs'|t }}</h2>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+        for="local-tasks">
+        {{ secondary }}
+    </ul>
+{% endif %}
