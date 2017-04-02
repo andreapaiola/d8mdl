@@ -1,0 +1,16 @@
+.mdl-navigation > .mdl-list__item,
+.mdl-layout__header-row .mdl-list__item .mdl-navigation__link {
+    padding: 0;
+}
+
+.mdl-navigation > .mdl-list__item + .mdl-list__item:before {
+    content: ">";
+    color: rgba(255,255,255,0.7);
+    vertical-align: top;
+    display: inline-block;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 25px;
+    margin: 0 10px 0 8px;
+    -webkit-font-smoothing: antialiased;
+}

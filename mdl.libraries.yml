@@ -7,6 +7,12 @@ mdl:
   dependencies:
     - mdl/materialIcons
     - mdl/roboto
+
+mdl.breadcrumb:
+  css:
+    component:
+      css/breadcrumb.css: {}
+
 materialIcons:
   css:
     theme:
