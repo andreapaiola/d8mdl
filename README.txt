@@ -14,7 +14,7 @@ FEATURES
 --------
 
 Easy theme administration:
-- You can change the MDL version, default is "1.1.3". Easy upgrade.
+- You can change the MDL version, default is "1.3.0". Easy upgrade.
 - You change the MDL primary color, default is "indigo".
 - You change the MDL accent color, default is "pink".
 - You can load the Roboto font from Google CDN. This is bad for performance, avoid if possible.
@@ -92,7 +92,7 @@ INSTALLATION
 Standard theme installation: copy the unzipped dir into "themes" directory.
 MDL's CSS and JS are in Google CDN, but you can load from local theme subdirectory mdl/, look at the theme configuration.
 Download from http://www.getmdl.io/started/index.html#download
-Current MDL version: 1.3.3, but if you want you can update MDL version in theme configuration.
+Current MDL version: 1.3.0, but if you want you can update MDL version in theme configuration.
 Default colors are indigo-pink, but MDL colors is customizable here http://www.getmdl.io/customize/index.html
 and you can set in theme configuration.
 
