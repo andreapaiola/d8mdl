@@ -1,0 +1,16 @@
+{# core/themes/stable/templates/block/block.html.twig #}
+
+{{ title_prefix }}
+{% if label %}
+    <h2{{ title_attributes }}>{{ label }}</h2>
+{% endif %}
+{{ title_suffix }}
+{% block content %}
+    {# Right aligned menu below button #}
+    <button id="local-tasks" class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">more_vert</i>
+    </button>
+
+    {{ content }}
+
+{% endblock %}
