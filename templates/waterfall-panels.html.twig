@@ -5,7 +5,7 @@
         {% if item.text %}
             <span href="#{{ key }}-panel" {% if is_active %}class="{{ is_active }}"{% endif %}>{{ item.text }}</span>
         {% else %}
-            <div {% if is_active %}class="{{ is_active }}"{% endif %}>{{ item }}</div>
+            <a href="#{{ key }}" class="mdl-layout__tab {% if is_active %} {{ is_active }}{% endif %}">{{ item }}</a>
         {% endif %}
         {% set is_active = '' %}
     {% endfor %}
