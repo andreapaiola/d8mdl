@@ -15,6 +15,11 @@ mdl.selectfield:
   js:
     /libraries/mdl-selectfield/mdl-selectfield.min.js: {}
 
+mdl.breadcrumb:
+  css:
+    component:
+      css/breadcrumb.css: {}
+
 materialIcons:
   css:
     theme:

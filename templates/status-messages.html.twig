@@ -1,0 +1,71 @@
+{# core/themes/stable/templates/misc/status-messages.html.twig#}
+{% if message_list|length > 0 %}<div id="status-messages">{% endif %}
+
+{% for type, messages in message_list %}
+    <div role="contentinfo" aria-label="{{ status_headings[type] }}"{{ attributes|without('role', 'aria-label') }}>
+        {% if type == 'error' %}
+        <div role="alert">
+            {% endif %}
+            {% if status_headings[type] %}
+                <h2 class="visually-hidden">{{ status_headings[type] }}</h2>
+            {% endif %}
+            {% if messages|length > 1 %}
+                <ul>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                {{ messages|first }}
+            {% endif %}
+            {% if type == 'error' %}
+        </div>
+        {% endif %}
+    </div>
+{% endfor %}
+{% if message_list|length > 0 %}</div>{% endif %}
+
+<div aria-live="assertive" aria-atomic="true" aria-relevant="text" class="mdl-snackbar mdl-js-snackbar">
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+        <i class="material-icons">delete</i>
+        <label> text</label>
+    </button>
+    <div class="mdl-snackbar__text">
+    </div>
+    <button type="button" class="mdl-snackbar__action"></button>
+</div>
+{% if message_list|length > 0 %}
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function() {
+    var notification = document.querySelector('.mdl-js-snackbar');
+    var status_messages = document.getElementById('status-messages');
+
+    var dismissHandler = function(event) {
+        notification.MaterialSnackbar.cleanup_();
+    };
+
+    status_messages.classList.add('visually-hidden');
+
+    var fired=false;
+    notification.addEventListener('mdl-componentupgraded', function(e) {
+        if (typeof notification.MaterialSnackbar != 'object' || fired) return;
+        fired = true;
+
+        {% for type, messages in message_list %}
+            var {{ type }} = {
+                timeout: 10000,
+                actionHandler: dismissHandler,
+                actionText: 'Dismiss'
+            };
+
+            var elem = document.createElement('textarea');
+            elem.innerHTML = "{{ messages|join("\n")|json_encode() }}\n";
+            {{ type }}.message = elem.value;
+
+            notification.MaterialSnackbar.showSnackbar({{ type }});
+        {% endfor %}
+    });
+
+});
+</script>
+{% endif %}
