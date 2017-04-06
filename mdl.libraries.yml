@@ -20,6 +20,11 @@ mdl.searchblock:
     component:
       css/header.block--search.css: {}
 
+mdl.breadcrumb:
+  css:
+    component:
+      css/breadcrumb.css: {}
+
 materialIcons:
   css:
     theme:

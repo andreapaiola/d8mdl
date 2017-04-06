@@ -1,0 +1,17 @@
+{# @override core/themes/stable/templates/navigation/breadcrumb.html.twig #}
+{% if breadcrumb %}
+    <nav role="navigation" aria-labelledby="system-breadcrumb" class="mdl-layout__header-row">
+        <h2 id="system-breadcrumb" class="visually-hidden">{{ 'Breadcrumb'|t }}</h2>
+        <ul class="mdl-navigation">
+            {% for item in breadcrumb %}
+                <li class="mdl-list__item">
+                    {% if item.url %}
+                        <a class="mdl-navigation__link" href="{{ item.url }}">{{ item.text }}</a>
+                    {% else %}
+                        <span class="mdl-navigation__link">{{ item.text }}</span>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </nav>
+{% endif %}
