@@ -10,7 +10,13 @@ function mdl_library_info_alter(&$libraries, $extension)
         $oldJSKey = array_shift($mdlJSKeys);
 
         /* Load MDL CSS and JS from Google CDN or local subdirectory */
-        if (theme_get_setting('remote')) {
+        $should_remote = theme_get_setting('remote');
+        $localCssKey = theme_get_setting('material_css_filename');
+        $localJsKey = theme_get_setting('material_js_filename');
+        $has_local_css = !empty($localCssKey) && file_exists(DRUPAL_ROOT . $localCssKey);
+        $has_local_js  = !empty($localJsKey) && file_exists(DRUPAL_ROOT . $localJsKey);
+
+        if (!$has_local_css || !$has_local_js || $should_remote) {
             $newCSSKey = str_replace(array('VERSION', 'PRIMARY', 'ACCENT'), array(theme_get_setting('version')
             , theme_get_setting('primary'), theme_get_setting('accent')), $oldCSSKey);
             $libraries['mdl']['css']['theme'][$newCSSKey] = $libraries['mdl']['css']['theme'][$oldCSSKey];
@@ -19,10 +25,8 @@ function mdl_library_info_alter(&$libraries, $extension)
         }
         else
         {
-            $newCSSKey = 'mdl/material.css';
-            $libraries['mdl']['css']['theme'][$newCSSKey] = array();
-            $newJSKey = 'mdl/material.js';
-            $libraries['mdl']['js'][$newJSKey] = array();
+            $libraries['mdl']['css']['theme'][$localCssKey] = array();
+            $libraries['mdl']['js'][$localJsKey] = array();
         }
 
         unset($libraries['mdl']['css']['theme'][$oldCSSKey]);

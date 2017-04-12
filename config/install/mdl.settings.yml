@@ -11,3 +11,7 @@ headerSeamed: FALSE
 drawerFixed: FALSE
 footer: 'mega'
 webAppManifest: TRUE
+
+# if remote==FALSE, these local files will be served
+material_css_filename: '/themes/mdl/mdl/material.min.css'
+material_js_filename: '/themes/mdl/mdl/material.min.js'
