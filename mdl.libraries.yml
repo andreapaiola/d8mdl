@@ -8,6 +8,18 @@ mdl:
     - mdl/materialIcons
     - mdl/roboto
 
+mdl.selectfield:
+  css:
+    component:
+      /libraries/mdl-selectfield/mdl-selectfield.min.css: {}
+  js:
+    /libraries/mdl-selectfield/mdl-selectfield.min.js: {}
+
+mdl.searchblock:
+  css:
+    component:
+      css/header.block--search.css: {}
+
 mdl.breadcrumb:
   css:
     component:

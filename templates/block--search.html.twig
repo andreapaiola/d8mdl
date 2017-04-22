@@ -1,0 +1,25 @@
+{# core/themes/stable/templates/block/block.html.twig #}
+
+{% set classes = [
+'mdl-textfield', 'mdl-js-textfield', 'mdl-textfield--expandable', 'mdl-textfield--floating-label', 'mdl-textfield--align-right'
+] %}
+<div class="mdl-layout-spacer"></div>
+
+<div {{ attributes.addClass(classes) }}>
+    {{ title_prefix }}
+    {% if label %}
+        <h2{{ title_attributes.addClass('visually-hidden') }}>{{ label }}</h2>
+    {% endif %}
+    {{ title_suffix }}
+
+    <label class="mdl-button mdl-js-button mdl-button--icon" for="edit-keys">
+        <i class="material-icons">search</i>
+    </label>
+    <div class="mdl-textfield__expandable-holder">
+        {% block content %}
+            {{ content }}
+        {% endblock %}
+    </div>
+</div>
+
+{{ attach_library('mdl/mdl.searchblock') }}

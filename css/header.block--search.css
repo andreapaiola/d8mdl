@@ -1,0 +1,15 @@
+
+
+.mdl-textfield__expandable-holder .form-actions {
+    position: absolute !important;
+    clip: rect(1px, 1px, 1px, 1px);
+    overflow: hidden;
+    height: 1px;
+    width: 1px;
+    word-wrap: normal;
+}
+
+.mdl-textfield__expandable-holder .mdl-textfield__input {
+    background: white;
+    color: black;
+}
