@@ -10,6 +10,7 @@ stylesheets-remove:
   - core/modules/system/css/system.theme.css
 regions:
   header: 'Header'
+  waterfall: 'Waterfall'
   drawer: 'Drawer'
   content: 'Content'
   footer: 'Footer'

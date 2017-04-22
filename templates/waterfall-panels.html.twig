@@ -1,0 +1,15 @@
+{% if items|length > 0 %}
+<div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+    {% set is_active = 'is-active' %}
+    {% for key, item in items %}
+        {% if item.text %}
+            <span href="#{{ key }}-panel" {% if is_active %}class="{{ is_active }}"{% endif %}>{{ item.text }}</span>
+        {% else %}
+            <a href="#{{ key }}" class="mdl-layout__tab {% if is_active %} {{ is_active }}{% endif %}">{{ item }}</a>
+        {% endif %}
+        {% set is_active = '' %}
+    {% endfor %}
+</div>
+
+{{ attach_library('mdl/waterfall-panels') }}
+{% endif %}
