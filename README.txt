@@ -9,6 +9,9 @@ low-powered devices, this theme is for lightweight sites.
 Use it when you are ready to move away from jQuery.
 http://andreapaiola.name/2015-07-materialize-css-vs-material-design-lite/
 
+Optional module: MDL Layout components
+https://github.com/monosmou/mdl_layout
+
 
 FEATURES
 --------
