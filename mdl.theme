@@ -201,7 +201,7 @@ function mdl_preprocess_textarea(&$variables) {
 }
 
 function mdl_preprocess_input(&$variables) {
-  if (in_array($variables['element']['#type'],[ 'textfield', 'search', 'password'])) {
+  if (in_array($variables['element']['#type'],[ 'textfield', 'search', 'password', 'email'])) {
     $variables['attributes']['class'][] = 'mdl-textfield__input';
     if (empty($variables['attributes']['placeholder'])) {
       unset($variables['attributes']['placeholder']);
@@ -227,7 +227,7 @@ function mdl_preprocess_select(&$variables) {
 }
 
 function mdl_preprocess_form_element(&$variables) {
-  if (in_array($variables['type'], ['textfield', 'search', 'password'])) {
+  if (in_array($variables['type'], ['textfield', 'search', 'password', 'email'])) {
     $variables['label_display'] = 'after';
     $variables['label']['#attributes']['class'][] = 'mdl-textfield__label';
     $variables['attributes'] = new Attribute();
