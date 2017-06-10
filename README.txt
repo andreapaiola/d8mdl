@@ -101,4 +101,3 @@ Download from http://www.getmdl.io/started/index.html#download
 Current MDL version: 1.3.0, but if you want you can update MDL version in theme configuration.
 Default colors are indigo-pink, but MDL colors is customizable here http://www.getmdl.io/customize/index.html
 and you can set in theme configuration.
-
